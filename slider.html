@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>3 Column Layout</title>
+   <link rel="stylesheet" href="assets/css/layout.css">
+   <link rel="stylesheet" href="assets/css/style.css">
+
+   <script src="assets/js/script.js"></script> 
+   <script>
+       window.onload = function() {
+       // ви можете зробити скільки завгодно слайдів
+       let slides = [
+       {
+           title: "MSI",
+           background: "https://amrita-cs.com/wp-content/uploads/2016/12/MSI-logo-png-2.png",
+           link: "https://ua.msi.com"
+       }, {
+           title: "Asus",
+           background: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/ASUS_Corporate_Logo.svg/2560px-ASUS_Corporate_Logo.svg.png",
+           link: "https://www.asus.com/ua-ua"
+       }, {
+           title: "Gigabyte",
+           background: "https://w7.pngwing.com/pngs/217/382/png-transparent-gigabyte-technology-graphics-cards-video-adapters-laptop-computer-hardware-motherboard-laptop-computer-network-electronics-text.png",
+           link: "https://www.gigabyte.ru/"
+       }
+       ]
+       Slider.initSlider(slides);
+   };
+
+   function click_btn(id) 
+   { 
+      for(; Slider.current != id; ) 
+      { 
+          let next; 
+          if (Slider.current === (Slider.slides.length - 1) ) { 
+            next = 0; 
+        }else { 
+         next = Slider.current + 1; 
+     } 
+
+     document.getElementById("slide-" + next).style.left = "100%"; 
+     document.getElementById("slide-" + Slider.current).style.left = 0; 
+
+     document.getElementById("slide-" + next).setAttribute("class", "singleSlide slideInRight"); 
+     document.getElementById("slide-" + Slider.current).setAttribute("class", "singleSlide slideOutLeft"); 
+
+     Slider.current = next; 
+ } 
+}
+</script>
+
+
+</head>
+<body>
+    <header class="header">
+        <img src="assets/img/1.jpg" height="60px" width="60px" align="right">
+        <p>Header...</p>
+    </header> 
+    <div class="container">
+       <main class="center column">
+
+         <div id="slider"></div>
+         <button  id="btnPrev">Prev</button>
+         <button  id="btnNxt">Next</button>
+         <button id = "btnHide">Hide</button>
+         <input type = "button" id = "btnStart" value="Start" class="btn">
+         <div id="btns"></div>
+
+         <article>
+           <h1>Slider</h1>
+       </article>
+   </main>
+
+   <nav class="left column">
+       <h3>Left heading</h3>
+       <ul>
+           <li><a href="#">Link 1</a></li>
+       </ul>
+       <h3>Left heading</h3>
+       <ul>
+           <li><a href="index.html">Header</a></li>
+           <li> <a href="about.html">About</a></li>
+           <li><a href="contact.html">Contact</a></li>
+           <li> <a href="media.html">Media</a></li>
+           <li> <a href="slider.html">Slider</a></li>
+           <li> <a href="table.html">Table</a></li>
+       </ul>
+   </nav>
+   <div class="right column">
+       <h3>Right heading</h3>
+       <p></p>
+   </div>
+   <div class="push"></div>
+</div>
+
+
+<div class="footer-wrapper">
+   <footer class="footer">
+     <img src="assets/img/1.jpg" height="60px" width="60px" align="right">
+     <p>Footer...</p>
+ </footer>
+</div>
+</body> 
+</html>
